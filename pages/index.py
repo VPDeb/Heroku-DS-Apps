@@ -16,24 +16,24 @@ column1 = dbc.Col(
         dcc.Markdown(
             """
         
-            ## Your Value Proposition
+            ## Gender Calculated Insights
 
-            Emphasize how the app will benefit users. Don't emphasize the underlying technology.
-
-            ✅ RUN is a running app that adapts to your fitness levels and designs personalized workouts to help you improve your running.
-
-            ❌ RUN is the only intelligent running app that uses sophisticated deep neural net machine learning to make your run smarter because we believe in ML driven workouts.
-
+            What if you had some insights into a persons life and you could use it find out if the
+            individual was a Male of Female.  This app is little fun setup where you can change your
+            values and make a prediction whether or not this information believes the person would be 
+            Male of Female.  When you are done working with the prediction portion of the model I'd love
+            to hear feedback, please click the google symbol to be redirected to a google form to fill in
+            your specific data and let me know it your prediction was correct with your real life values.
             """
         ),
-        dcc.Link(dbc.Button('Your Call To Action', color='primary'), href='/predictions')
+        dcc.Link(dbc.Button('Lets Predict', color='btn btn-info'), href='/predictions')
     ],
     md=4,
 )
 
 gapminder = px.data.gapminder()
-fig = px.scatter(gapminder.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
-           hover_name="country", log_x=True, size_max=60)
+fig = px.scatter(gapminder.query("gender-F/1-M/0"), x="work40hrs", y="income_over_50K", size="pop", color="continent",
+           hover_name="occupation", log_x=True, size_max=60)
 
 column2 = dbc.Col(
     [
